@@ -1,10 +1,10 @@
 package find.area;
 
 public class Parabola {
-    private double a;
-    private double b;
-    private double c;
-    private double x0;
+    double a;
+    double b;
+    double c;
+    double x0;
 
     public Parabola(double b, double c, double a, double x0) {
         this.a = a;

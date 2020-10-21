@@ -1,10 +1,10 @@
 package find.area;
 
 public class Rectangle {
-    private double x1;
-    private double x2;
-    private double y1;
-    private double y2;
+    double x1;
+    double x2;
+    double y1;
+    double y2;
 
     public Rectangle(double x1, double y1, double x2, double y2) {
         this.x1 = x1;

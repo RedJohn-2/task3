@@ -1,11 +1,11 @@
 package find.area;
 
 public class Picture {
-    private Rectangle rectangle;
-    private Circle circle;
-    private Line line;
-    private Parabola parabola1;
-    private Parabola parabola2;
+    Rectangle rectangle;
+    Circle circle;
+    Line line;
+    Parabola parabola1;
+    Parabola parabola2;
 
     public Picture(Rectangle rectangle, Circle circle, Line line, Parabola parabola1, Parabola parabola2) {
         this.rectangle = rectangle;
@@ -26,7 +26,7 @@ public class Picture {
         if (circle.isPointInside(x,y) || rectangle.isPointInside(x,y) || parabola1.isPointInside(x,y)
            || line.isPointInside(x,y))
             return SimpleColor.BLUE;
-        if (!(parabola2.isPointInside(x,y)))
+        if (!parabola2.isPointInside(x,y))
             return SimpleColor.YELLOW;
         return SimpleColor.GRAY;
     }

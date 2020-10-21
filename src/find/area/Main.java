@@ -14,7 +14,7 @@ public class Main {
         double x = readPointCoordinates("x");
         double y = readPointCoordinates("y");
         printColorForPoint(x,y,picture);
-
+        System.out.println();
     }
 
     static double readPointCoordinates(String coordinate) {
@@ -24,17 +24,21 @@ public class Main {
     }
 
     static  void runTests(Picture picture) {
-        double[] coordinateX = {-1,-4,-3,-3,1,3,1,3,-1,-3,-1,1.7,3};
-        double[] coordinateY = {-1,1,-3,-5,1,1,4,3,4,6,7,1.7,-3};
-        for (int i = 0; i < 13; i++) {
-            printColorForPoint(coordinateX[i], coordinateY[i], picture);
+        Point[] coordinate = {new Point(-1,-1), new Point(-4,1), new Point(-3,-5),
+                              new Point(1,1), new Point(3,1), new Point(1,4),
+                              new Point(3,3), new Point(-1,4), new Point(3,-3)};
+        SimpleColor[] area = {SimpleColor.WHITE, SimpleColor.BLUE, SimpleColor.YELLOW, SimpleColor.GREEN,
+                              SimpleColor.BLUE, SimpleColor.BLUE, SimpleColor.GREEN,SimpleColor.ORANGE,
+                              SimpleColor.GRAY};
+        for (int i = 0; i < coordinate.length; i++) {
+            printColorForPoint(coordinate[i].x,coordinate[i].y, picture);
+            System.out.print(" " + (area[i] == picture.getColor(coordinate[i].x,coordinate[i].y)));
+            System.out.println();
         }
     }
 
-    static void printColorForPoint(double x, double y, Picture picture)
-    {
-        System.out.printf("(%.1f, %.1f) -> %S", x, y, picture.getColor(x,y));
-        System.out.println();
+    static void printColorForPoint(double x, double y, Picture picture) {
+        System.out.printf("(%.1f, %.1f) -> %S ", x, y, picture.getColor(x,y));
     }
 }
 
