@@ -23,22 +23,29 @@ public class Main {
         return scanner.nextDouble();
     }
 
-    static  void runTests(Picture picture) {
-        Point[] coordinate = {new Point(-1,-1), new Point(-4,1), new Point(-3,-5),
+    static void runTests(Picture picture) {
+        Point[] coordinateArr = {new Point(-1,-1), new Point(-4,1), new Point(-3,-5),
                               new Point(1,1), new Point(3,1), new Point(1,4),
                               new Point(3,3), new Point(-1,4), new Point(3,-3)};
-        SimpleColor[] area = {SimpleColor.WHITE, SimpleColor.BLUE, SimpleColor.YELLOW, SimpleColor.GREEN,
-                              SimpleColor.BLUE, SimpleColor.BLUE, SimpleColor.GREEN,SimpleColor.ORANGE,
-                              SimpleColor.GRAY};
-        for (int i = 0; i < coordinate.length; i++) {
-            printColorForPoint(coordinate[i].x,coordinate[i].y, picture);
-            System.out.print(" " + (area[i] == picture.getColor(coordinate[i].x,coordinate[i].y)));
-            System.out.println();
+        SimpleColor[] correctResultArr = {SimpleColor.WHITE, SimpleColor.BLUE, SimpleColor.YELLOW, SimpleColor.GREEN,
+                                          SimpleColor.BLUE, SimpleColor.BLUE, SimpleColor.GREEN,SimpleColor.ORANGE,
+                                          SimpleColor.GRAY};
+        for (int i = 0; i < coordinateArr.length; i++) {
+            if (correctResultArr[i] == picture.getColor(coordinateArr[i].x, coordinateArr[i].y)) {
+                printTest(coordinateArr, i, picture, "correct");
+            } else {
+                printTest(coordinateArr, i, picture, "incorrect");
+            }
         }
     }
 
+    static void printTest(Point[] coordinateArr, int i, Picture picture, String result) {
+        System.out.printf("(%.1f, %.1f) -> %S %s\n", coordinateArr[i].x, coordinateArr[i].y,
+                          picture.getColor(coordinateArr[i].x,coordinateArr[i].y), result);
+    }
+
     static void printColorForPoint(double x, double y, Picture picture) {
-        System.out.printf("(%.1f, %.1f) -> %S ", x, y, picture.getColor(x,y));
+        System.out.printf("(%.1f, %.1f) -> %S\n", x, y, picture.getColor(x,y));
     }
 }
 
