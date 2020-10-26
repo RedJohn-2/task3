@@ -27,14 +27,17 @@ public class Main {
         Point[] coordinateArr = {new Point(-1,-1), new Point(-4,1), new Point(-3,-5),
                               new Point(1,1), new Point(3,1), new Point(1,4),
                               new Point(3,3), new Point(-1,4), new Point(3,-3)};
+
         SimpleColor[] correctResultArr = {SimpleColor.WHITE, SimpleColor.BLUE, SimpleColor.YELLOW, SimpleColor.GREEN,
                                           SimpleColor.BLUE, SimpleColor.BLUE, SimpleColor.GREEN,SimpleColor.ORANGE,
                                           SimpleColor.GRAY};
+
         for (int i = 0; i < coordinateArr.length; i++) {
             if (correctResultArr[i] == picture.getColor(coordinateArr[i].x, coordinateArr[i].y)) {
                 printTest(coordinateArr, i, picture, "correct");
             } else {
                 printTest(coordinateArr, i, picture, "incorrect");
+                System.exit(-1);
             }
         }
     }
